@@ -11,3 +11,12 @@ function checkGreatYear(year) {
 console.log(checkGreatYear(2020));
 
 // 函数是否要return 取决于函数外是否需要用到这个值
+
+/*  */
+
+
+function show() {
+  console.log(arguments.length);
+}
+
+show(10, true, "hello", 40, 50);

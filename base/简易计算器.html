@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  let option = prompt(`欢迎使用简易计算器：
+  1.加法运算：
+  2.减法运算：
+  3.乘法运算：
+  4.除法运算：
+  5.退出:
+  请输入您的选项:
+   `);
+  load();
+  function load() {
+    if (option == 5) {
+      return;
+    } else if (option == null) {
+      return;
+    } else {
+      let value1 = parseInt(prompt(`请输入一个数值`));
+      let value2 = parseInt(prompt(`请输入一个数值`));
+      alert1(calc(value1, value2));
+    }
+  }
+  function calc(value1, value2) {
+    let result = 0;
+    switch (parseInt(option)) {
+      case 1:
+        result = value1 + value2;
+        break;
+      case 2:
+        result = value1 - value2;
+        break;
+      case 3:
+        result = value1 * value2;
+        break;
+      case 4:
+        result = value1 / value2;
+        break;
+      case 5:
+        return;
+    }
+    return result;
+  }
+
+
+
+</script>
+
+</html>
