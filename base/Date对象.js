@@ -19,3 +19,12 @@ let str = `${data.getFullYear()}-${repairZero(data.getMonth() + 1)}-${data.getDa
   } ${repairZero(data.getHours())}:${repairZero(data.getMinutes())}:${repairZero(data.getSeconds())}`
 
 console.log(`${str} ${week(data.getDay())}`);
+
+/* 获取Date对象的总毫秒数(时间戳)   1970年1月1日距离现在的毫秒数*/
+let date = new Date();
+console.log(date.valueOf());
+console.log(date.getTime());
+let date1 = +new Date();
+console.log(date1);
+/* H5新增 */
+console.log(Date.now());

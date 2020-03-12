@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  function countDown(times) {
+    let nowTime = +new Date();  //获取当前的时间戳
+    let inputTime = +new Date(times); //获取输入的未来的时间戳
+    let time = (inputTime - nowTime) / 1000;//把时间转换成总的秒数
+    let d = parseInt(time / 60 / 60 / 24);  //把总的秒数转换成天数
+    d = d < 10 ? "0" + d : d;
+    let h = parseInt(time / 60 / 60 % 24);  //天
+    h = h < 10 ? "0" + h : h;
+    let m = parseInt(time / 60 % 60);//分
+    m = m < 10 ? "0" + m : m;
+    let s = parseInt(time % 60);//秒
+    s = s < 10 ? "0" + s : s;
+    return `${d}天${h}时${m}分${s}秒`;
+  }
+  setInterval(() => {
+    console.log(countDown('2020-3-13 00:00:00'));
+  }, 1000)
+
+</script>
+
+</html>

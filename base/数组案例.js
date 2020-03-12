@@ -22,3 +22,28 @@ for (let i = 0; i < arr1.length; i++) {
 }
 console.log(arr2);
 
+// 数组去重
+
+//数组去重(indexOf)
+function unique(arr) {
+  let res = [];
+  for (let i = 0; i < arr.length; i++) {
+    /* 判断新数组里是否有旧数组的值 */
+    if (res.indexOf(arr[i]) === -1) {  //-1表示没有找到
+      res.push(arr[i]);
+    }
+  }
+  return res;
+}
+console.log(unique(['a', 'a', 's', 'z', 'x', 'x']));
+
+// 查找数组中元素出现的位置  {字符串也是一样的方式}
+function findIndex(arr, value) {
+  let index = arr.indexOf(value); //返回查找到下标
+  while (index !== -1) {
+    console.log(index); //先输出下标
+    index = arr.indexOf(value, index + 1);  //然后在从下标的后一位开始查找  直到找不到
+  }
+}
+let array = ["A", "b", "a", "A", "B", "A"];
+findIndex(array, "A");
