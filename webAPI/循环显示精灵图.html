@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  ul {
+    width: 300px;
+    margin: 100px auto;
+    list-style: none;
+    overflow: hidden;
+  }
+
+  ul li {
+    width: 24px;
+    height: 24px;
+    float: left;
+    margin: 20px;
+    background-image: url(./img/TB1.png);
+  }
+</style>
+
+<body>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</body>
+<script>
+  let li = document.querySelectorAll("li");
+  for (let i = 0; i < li.length; i++) {
+    let index = i * 44;
+    li[i].style.backgroundPosition = "0 -" + index + "px";
+  }
+</script>
+
+</html>
