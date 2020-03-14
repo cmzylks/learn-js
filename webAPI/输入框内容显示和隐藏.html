@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  input {
+    outline: none;
+  }
+</style>
+
+<body>
+  <div class="login">
+    <input type="text" value="请输入内容" id="ss">
+  </div>
+</body>
+<script>
+
+  let inp = document.querySelector("#ss");
+  inp.onfocus = function () {
+    this.value = "";
+    this.style.border = "1px solid red";
+  };
+  inp.onblur = function () {
+    this.value = "请输入内容";
+    this.style.border = "";
+  }
+
+</script>
+
+</html>

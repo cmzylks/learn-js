@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            padding: 100px;
+        }
+
+        textarea {
+            width: 200px;
+            height: 100px;
+            border: 1px solid pink;
+            outline: none;
+            resize: none;
+        }
+
+        ul {
+            margin-top: 50px;
+        }
+
+        li {
+            width: 300px;
+            padding: 5px;
+            background-color: rgb(245, 209, 243);
+            color: red;
+            font-size: 14px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id=""></textarea>
+    <button>发布</button>
+    <ul>
+
+    </ul>
+    <script>
+        let btn = document.querySelector("button");
+        let ul = document.querySelector("ul");
+        let text = document.querySelector("textarea");
+        btn.addEventListener("click", function () {
+            let value = text.value; //获取消息框的内容
+            let li = document.createElement('li');//创建一个li
+            li.innerText = value;   //把内容放到li中
+            /* (要插入的元素,插入的位置) */
+            ul.insertBefore(li, ul.children[0]); //把li插入到ul的第一个孩子之前
+            text.value = "";//清空消息框
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  .content {
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    border: 1px solid orange;
+    line-height: 50px;
+    position: relative;
+  }
+
+  .content i::after {
+    position: absolute;
+    content: "";
+    right: 5px;
+    top: 18px;
+    width: 20px;
+    height: 15px;
+    display: block;
+    background-image: url(./img/icon.png);
+    background-position: 6px -350px;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+  }
+
+  ul li {
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border: 1px solid orange;
+  }
+
+  ul li:hover {
+    background-color: orange;
+  }
+</style>
+
+<body>
+  <div class="head">
+    <div class="content">
+      <span>微博</span>
+      <i></i>
+    </div>
+    <ul class="list">
+      <li>私信</li>
+      <li>评论</li>
+      <li>@我</li>
+    </ul>
+  </div>
+</body>
+
+<script>
+  let content = document.querySelector(".content");
+  let ul = document.querySelector(".list");
+  content.addEventListener('mouseover', function () {
+    this.style.backgroundColor = "orange";
+    ul.style.display = "block";
+  })
+  content.addEventListener('mouseout', function () {
+    this.style.backgroundColor = "";
+    ul.style.display = "";
+  })
+  ul.addEventListener('mouseover', function () {
+    this.style.display = "block";
+  })
+  ul.addEventListener('mouseout', function () {
+    this.style.display = "";
+  })
+
+</script>
+
+</html>

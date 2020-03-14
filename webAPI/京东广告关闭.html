@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  header {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  header .close {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+  }
+
+  header :first-child {
+    width: 100%;
+  }
+</style>
+
+<body>
+  <header>
+    <div class="active">
+      <img src="img/luzhou.jpg" alt="">
+      <img src="img/close.jpg" alt="" class="close">
+    </div>
+
+  </header>
+</body>
+
+<script>
+  let btn = document.querySelector(".close");
+  let active = document.querySelector(".active");
+  btn.onclick = function () {
+    active.style.display = "none";
+  }
+
+</script>
+
+</html>
