@@ -36,6 +36,10 @@
             font-size: 14px;
             margin: 15px 0;
         }
+
+        li a {
+            float: right;
+        }
     </style>
 </head>
 
@@ -52,9 +56,16 @@
         btn.addEventListener("click", function () {
             let value = text.value; //获取消息框的内容
             let li = document.createElement('li');//创建一个li
-            li.innerText = value;   //把内容放到li中
+            li.innerHTML = value + "<a href='javascript:;'>删除</a>";   //把内容放到li中
             /* (要插入的元素,插入的位置) */
             ul.insertBefore(li, ul.children[0]); //把li插入到ul的第一个孩子之前
+            let as = document.querySelectorAll("a");
+            for (let i = 0; i < as.length; i++) {
+                as[i].onclick = function () {
+                    ul.removeChild(this.parentElement);
+                }
+
+            }
             text.value = "";//清空消息框
         })
     </script>
