@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<style>
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+
+<body>
+  <ul id="ul">
+    <li>西施</li>
+    <li>貂蝉</li>
+    <li>昭君</li>
+    <li>凤姐</li>
+    <li>芙蓉姐姐</li>
+  </ul>
+  <input type="button" value="按钮" id="btn" />
+  <script>
+    let ul = document.querySelector("#ul");
+    let btn = document.querySelector("#btn");
+    ul.addEventListener("click", function (e) {
+      for (let i = 0; i < this.children.length; i++) {
+        this.children[i].style.backgroundColor = "";
+      }
+      e.target.style.backgroundColor = "red";
+    });
+    btn.addEventListener("click", function () {
+      let li = document.createElement('li');
+      li.innerHTML = "杨玉环";
+      ul.insertBefore(li, ul.children[0]);
+    })
+  </script>
+</body>
+
+</html>

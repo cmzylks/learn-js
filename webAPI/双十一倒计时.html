@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style type="text/css">
+    .time-item {
+      width: 450px;
+      height: 45px;
+      margin: 50px auto;
+    }
+
+    .time-item strong {
+      background: orange;
+      color: #fff;
+      line-height: 49px;
+      font-size: 36px;
+      font-family: Arial;
+      padding: 0 10px;
+      margin-right: 10px;
+      border-radius: 5px;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .time-item>span {
+      float: left;
+      line-height: 49px;
+      color: orange;
+      font-size: 32px;
+      margin: 0 10px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .title {
+      width: 260px;
+      height: 50px;
+      margin: 200px auto 100px auto;
+    }
+  </style>
+
+</head>
+
+<body>
+  <h1 class="title">距离光棍节，还有</h1>
+  <div class="time-item">
+    <span><span id="day">00</span>天</span>
+    <strong><span id="hour">00</span>时</strong>
+    <strong><span id="minute">00</span>分</strong>
+    <strong><span id="second">00</span>秒</strong>
+  </div>
+  <script>
+    let day = document.querySelector("#day");
+    let hour = document.querySelector("#hour");
+    let minute = document.querySelector("#minute");
+    let second = document.querySelector("#second");
+    countTime("2020-11-11 0:0:0");
+    setInterval(function () {
+      countTime("2020-11-11 0:0:0");
+    }, 1000)
+    function countTime(time) {
+      let nowTime = +new Date();
+      let inputTime = +new Date(time);
+      let times = (inputTime - nowTime) / 1000;
+      if (times != 0) {
+        let d = parseInt(times / 60 / 60 / 24);
+        d = d < 10 ? "0" + d : d;
+        let h = parseInt(times / 60 / 60 % 24);
+        h = h < 10 ? "0" + h : h;
+        let m = parseInt(times / 60 % 60);
+        m = m < 10 ? "0" + m : m;
+        let s = parseInt(times % 60);
+        s = s < 10 ? "0" + s : s;
+        day.innerHTML = d;
+        hour.innerHTML = h;
+        minute.innerHTML = m;
+        second.innerHTML = s;
+      } else {
+        day.innerHTML = "00";
+        hour.innerHTML = "00";
+        minute.innerHTML = "00";
+        second.innerHTML = "00";
+      }
+
+    }
+  </script>
+</body>
+
+</html>

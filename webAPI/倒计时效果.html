@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 200px;
+        }
+
+        span {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            font-size: 20px;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span class="hour">1</span>
+        <span class="minute">2</span>
+        <span class="second">3</span>
+    </div>
+    <script>
+        let hour = document.querySelector(".hour");
+        let minute = document.querySelector(".minute");
+        let second = document.querySelector(".second");
+        function countDown(time) {
+            let nowTime = +new Date();
+            let inputTime = +new Date(time);
+            let times = (inputTime - nowTime) / 1000;
+            let int = null;
+            let h = parseInt(times / 60 / 60 % 24);
+            h = h < 10 ? "0" + h : h;
+            let m = parseInt(times / 60 % 60);
+            m = m < 10 ? "0" + m : m;
+            let s = parseInt(times % 60);
+            s = s < 10 ? "0" + s : s;
+            if (times > 0) {
+                hour.innerHTML = h;
+                minute.innerHTML = m;
+                second.innerHTML = s;
+                int = setInterval(function () {
+                    countDown(time);
+                }, 1000);
+            } else {
+                clearInterval = int;
+                hour.innerHTML = "00";
+                minute.innerHTML = "00";
+                second.innerHTML = "00";
+            }
+        }
+        countDown("2020-3-16 22:26:00");
+
+    </script>
+</body>
+
+</html
