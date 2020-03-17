@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  section {
+    margin: 0;
+    padding: 0;
+  }
+
+  img {
+    display: block;
+  }
+
+  .magnifier {
+    position: relative;
+    width: 398px;
+    border: 1px solid #ccc;
+    margin: 50px 50px;
+  }
+
+  .magnifier img {
+    vertical-align: middle;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .mask {
+    display: none;
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    left: 0;
+    top: 0;
+    background-color: yellow;
+    opacity: .5;
+    cursor: pointer;
+  }
+
+  .big {
+    display: none;
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    left: 410px;
+    top: 0;
+    border: 1px solid #ccc;
+  }
+</style>
+
+<body>
+  <section>
+    <div class="magnifier">
+      <img src="img/b3.png" alt="">
+      <div class="mask"></div>
+      <div class="big">
+        <img src="img/big.jpg" alt="" class="bigImg">
+      </div>
+    </div>
+  </section>
+</body>
+<script>
+  let magnifier = document.querySelector(".magnifier");
+  let mask = document.querySelector(".mask");
+  let big = document.querySelector(".big");
+  magnifier.addEventListener("mouseover", function (e) {
+    mask.style.display = "block";
+    big.style.display = "block";
+  })
+  magnifier.addEventListener("mouseout", function () {
+    mask.style.display = "none";
+    big.style.display = "none";
+  })
+  magnifier.addEventListener("mousemove", function (e) {
+    let maxImg = this.offsetWidth - mask.offsetWidth;
+    let x = e.pageX - this.offsetLeft;
+    let y = e.pageY - this.offsetTop;
+    let imgX = x - mask.offsetWidth / 2;
+    let imgY = y - mask.offsetHeight / 2;
+    if (imgX <= 0) {
+      imgX = 0;
+    } else if (imgX >= maxImg) {
+      imgX = maxImg;
+    }
+    if (imgY <= 0) {
+      imgY = 0;
+    } else if (imgY >= maxImg) {
+      imgY = maxImg;
+    }
+    mask.style.left = imgX + "px";
+    mask.style.top = imgY + "px";
+
+    let big = document.querySelector(".big");
+    let bigImg = document.querySelector(".bigImg");
+    let bigMax = bigImg.offsetWidth - big.offsetWidth;
+    let bigX = imgX * bigMax / maxImg;
+    let bigY = imgY * bigMax / maxImg;
+    bigImg.style.left = -bigX + 'px';
+    bigImg.style.top = -bigY + "px";
+
+  })
+</script>
+
+</html>
