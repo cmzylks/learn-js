@@ -23,11 +23,8 @@
     margin: 50px 50px;
   }
 
-  .magnifier img {
-    vertical-align: middle;
-    position: absolute;
-    top: 0;
-    left: 0;
+  .ss {
+    width: 100%;
   }
 
   .mask {
@@ -50,13 +47,21 @@
     left: 410px;
     top: 0;
     border: 1px solid #ccc;
+    overflow: hidden;
+  }
+
+  .big img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    vertical-align: middle;
   }
 </style>
 
 <body>
   <section>
     <div class="magnifier">
-      <img src="img/b3.png" alt="">
+      <img src="img/b3.png" alt="" class="ss">
       <div class="mask"></div>
       <div class="big">
         <img src="img/big.jpg" alt="" class="bigImg">
