@@ -1,4 +1,5 @@
 {
   "editor.fontFamily": "'Cascadia Code','苹方-简', 'Courier New', monospace,'苹方-简'",
-  "editor.fontSize": 16
+  "editor.fontSize": 16,
+  "commentTranslate.targetLanguage": "zh-CN"
 }
