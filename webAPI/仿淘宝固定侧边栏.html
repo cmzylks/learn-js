@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .slider-bar {
+            position: absolute;
+            left: 50%;
+            top: 300px;
+            margin-left: 600px;
+            width: 45px;
+            height: 130px;
+            background-color: pink;
+        }
+
+        .w {
+            width: 1200px;
+            margin: 10px auto;
+        }
+
+        .header {
+            height: 150px;
+            background-color: purple;
+        }
+
+        .banner {
+            height: 250px;
+            background-color: skyblue;
+        }
+
+        .main {
+            height: 1000px;
+            background-color: yellowgreen;
+        }
+
+        span {
+            display: none;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider-bar">
+        <span class="goBack">返回顶部</span>
+    </div>
+    <div class="header w">头部区域</div>
+    <div class="banner w">banner区域</div>
+    <div class="main w">主体部分</div>
+    <script>
+        let slider_bar = document.querySelector(".slider-bar");
+        let banner = document.querySelector(".banner");
+        let main = document.querySelector(".main");
+        let goBack = document.querySelector(".goBack");
+        let bannertop = banner.offsetTop;   //banner 元素距离顶部的距离
+        let slidertop = slider_bar.offsetTop - bannertop;   //浮块距离顶部的距离
+        // 全局添加scroll事件
+        window.addEventListener("scroll", function () {
+            // 如果页面向上卷曲出去的值大于等于banner 元素距离顶部的距离
+            // window.pageYOffset 获取整个页面向上卷曲出去的值 
+            if (window.pageYOffset >= bannertop) {
+                slider_bar.style.position = "fixed";    //设置固定定位定位
+                slider_bar.style.top = slidertop + "px";//设置浮块的位置
+            } else {
+                // 复原
+                slider_bar.style.position = "absolute";
+                slider_bar.style.top = 300 + "px";
+            }
+            // 如果页面向上卷曲出去的值大于等于main元素距离顶部的距离
+            if (window.pageYOffset >= main.offsetTop) {
+                goBack.style.display = "block"; //显示
+            } else {
+                goBack.style.display = "none";//隐藏
+            }
+        });
+    </script>
+</body>
+
+</html>
