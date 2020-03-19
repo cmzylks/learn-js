@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  ul li {
+    list-style: none;
+  }
+
+  section {}
+
+  #main {
+    width: 800px;
+    height: 460px;
+    border: 1px solid black;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+  }
+
+  #main ul {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 500%;
+    overflow: hidden;
+  }
+
+  #main ul li {
+    float: left;
+  }
+
+  #main ul li img {
+    width: 800px;
+    height: 460px;
+  }
+
+  #main ol {
+    list-style: none;
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    overflow: hidden;
+    transform: translateX(-50%);
+  }
+
+  #main ol li {
+    margin: 0 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid white;
+    float: left;
+  }
+
+  .current {
+    background-color: white;
+  }
+
+  .prev {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 50px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    background-color: #000;
+    opacity: .5;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  .next {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 50px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    background-color: #000;
+    opacity: .5;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  .prev,
+  .next {
+    display: none;
+    z-index: 999;
+  }
+
+  .prev:hover,
+  .next:hover {
+    opacity: 1;
+  }
+</style>
+
+<body>
+  <section>
+    <div id="main">
+      <div class="prev">&LeftTriangle;</div>
+      <div class="next">&RightTriangle;</div>
+      <ul id="slider">
+        <li>
+          <img src="./img/focus.jpg" alt="">
+        </li>
+        <li>
+          <img src="./img/focus1.jpg" alt="">
+        </li>
+        <li>
+          <img src="./img/focus2.jpg" alt="">
+        </li>
+        <li>
+          <img src="./img/focus3.jpg" alt="">
+        </li>
+      </ul>
+      <ol>
+        <li class="current"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ol>
+    </div>
+
+  </section>
+</body>
+<script src="../js/animate.js"></script>
+<script src="index.js"></script>
+
+</html>
